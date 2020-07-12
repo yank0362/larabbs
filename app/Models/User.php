@@ -12,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements MustVerifyEmailContract
 {
 
-    use Notifiable, MustVerifyEmailTrait, HasRoles;
+    use Notifiable, MustVerifyEmailTrait, HasRoles, Traits\ActiveUserHelper;
 
     protected $fillable = [
         'name', 'email', 'password','introduction','avatar'
@@ -83,4 +83,6 @@ class User extends Authenticatable implements MustVerifyEmailContract
 
         $this->attributes['avatar'] = $path;
     }
+
+
 }
