@@ -9,10 +9,15 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Auth;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @property String id
+ * Class User
+ * @package App\Models
+ */
 class User extends Authenticatable implements MustVerifyEmailContract
 {
 
-    use Notifiable, MustVerifyEmailTrait, HasRoles, Traits\ActiveUserHelper;
+    use Notifiable, MustVerifyEmailTrait, HasRoles, Traits\ActiveUserHelper, Traits\LastActivedAtHelper;
 
     protected $fillable = [
         'name', 'email', 'password','introduction','avatar'
